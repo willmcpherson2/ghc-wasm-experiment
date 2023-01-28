@@ -1,0 +1,32 @@
+cabal-version: 3.8
+name: experiment
+version: 0.0.0.0
+
+executable experiment
+    main-is: Main.hs
+    hs-source-dirs: src
+    default-language: Haskell2010
+    default-extensions:
+        ForeignFunctionInterface
+        OverloadedStrings
+    ghc-options:
+        -no-hs-main -optl-mexec-model=reactor
+        "-optl-Wl,--export=hs_init,--export=malloc,--export=mallocPtr,--export=free,--export=addExclamationToInput"
+        -Weverything
+        -Wno-missing-safe-haskell-mode
+        -Wno-implicit-prelude
+        -Wno-missing-kind-signatures
+        -Wno-missing-deriving-strategies
+        -Wno-name-shadowing
+        -Wno-unsafe
+        -Wno-missing-import-lists
+        -Wno-prepositive-qualified-module
+        -Wno-unused-do-bind
+        -Wno-missed-specialisations
+        -Wno-all-missed-specialisations
+        -Wno-monomorphism-restriction
+        -Wno-missing-local-signatures
+        -Wno-safe
+    build-depends:
+        , base
+        , bytestring
